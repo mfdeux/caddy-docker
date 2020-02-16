@@ -41,7 +41,7 @@ RUN apk add --no-cache \
     tzdata
 
 # install caddy
-COPY /install/caddy /usr/bin/caddy
+RUN cp /install/caddy /usr/bin/caddy
 
 # validate install
 RUN /usr/bin/caddy -version
@@ -55,7 +55,7 @@ COPY Caddyfile /etc/Caddyfile
 COPY index.html /srv/index.html
 
 # install process wrapper
-COPY /go/bin/parent /bin/parent
+RUN cp /go/bin/parent /bin/parent
 
 ENTRYPOINT ["/bin/parent", "caddy"]
 CMD ["--conf", "/etc/Caddyfile", "--log", "stdout", "--agree=$ACME_AGREE"]
