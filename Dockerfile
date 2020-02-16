@@ -1,7 +1,7 @@
 #
 # Builder
 #
-FROM abiosoft/caddy:builder as builder
+FROM mfdeux/caddy:builder as builder
 
 ARG version="1.0.3"
 ARG plugins="git,cors,realip,expires,cache,cloudflare"
