@@ -41,7 +41,7 @@ RUN apk add --no-cache \
     tzdata
 
 # install caddy
-RUN cp /install/caddy /usr/bin/caddy
+# RUN cp /install/caddy /usr/bin/caddy
 
 # validate install
 RUN /usr/bin/caddy -version
