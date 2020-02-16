@@ -161,8 +161,7 @@ end_stage
 # copy binary
 stage "copying binary"
 mkdir -p /install \
-    && mv caddy /install \
-    && /install/caddy -version
+    && mv caddy /usr/bin
 end_stage
 
 echo "installed caddy version $VERSION at /install/caddy"
