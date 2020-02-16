@@ -1,7 +1,13 @@
 #
 # Builder
 #
-FROM mfdeux/caddy-docker:builder as builder
+FROM golang:1.13-alpine
+
+RUN apk add --no-cache git gcc musl-dev
+
+COPY builder/builder.sh /usr/bin/builder.sh
+
+CMD ["/bin/sh", "/usr/bin/builder.sh"]
 
 ARG version="1.0.3"
 ARG plugins="git,cors,realip,expires,cache,cloudflare"
